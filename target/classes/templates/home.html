@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Juego</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#1a202c] text-white flex flex-col p-12">
+    <div class="flex mb-8 gap-5">
+        <p class="bg-[#4a5568] rounded-xl px-5 py-2">Your Gold: <span id="totalGold" th:text="${totalGold}" class="text-yellow-400 font-bold">0</span></p>
+        <form method="post" action="/reset">
+				<label><input type="submit" id="submit" value="Reset Gold" class="bg-blue-500 hover:bg-blue-600 hover:ring-2 hover:ring-[#83EEFF] text-white font-bold py-2 px-4 rounded"></label>
+		</form>
+    </div>
+
+    <section class="flex justify-evenly text-center my-10">
+        <div class="bg-[#2d3748] p-5 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-2">Farm</h2>
+            <p class="text-gray-400 mb-5">(earns 10-20 gold)</p>
+            <form method="post" action="/farm">
+				<label><input type="submit" id="submit" value="Find Gold!" class="bg-blue-500 hover:bg-blue-600 hover:ring-2 hover:ring-[#83EEFF] text-white font-bold py-2 px-4 rounded mt-4"></label>
+			</form>
+        </div>
+        <div class="bg-[#2d3748] p-5 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-2">Cave</h2>
+            <p class="text-gray-400 mb-5">(earns 5-10 gold)</p>
+            <form method="post" action="/cave">
+				<label><input type="submit" id="submit" value="Find Gold!" class="bg-blue-500 hover:bg-blue-600 hover:ring-2 hover:ring-[#83EEFF] text-white font-bold py-2 px-4 rounded mt-4"></label>
+			</form>
+        </div>
+        <div class="bg-[#2d3748] p-5 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-2">House</h2>
+            <p class="text-gray-400 mb-5">(earns 2-5 gold)</p>
+            <form method="post" action="/house">
+				<label><input type="submit" id="submit" value="Find Gold!" class="bg-blue-500 hover:bg-blue-600 hover:ring-2 hover:ring-[#83EEFF] text-white font-bold py-2 px-4 rounded mt-4"></label>
+			</form>
+        </div>
+        <div class="bg-[#2d3748] p-5 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-2">Casino</h2>
+            <p class="text-gray-400 mb-5">(earns/takes 0-50 gold)</p>
+            <form method="post" action="/casino">
+				<label>
+					<input type="submit" id="submit" value="Find Gold!" class="bg-blue-500 hover:bg-blue-600 hover:ring-2 hover:ring-[#83EEFF] text-white font-bold py-2 px-4 rounded mt-4">
+				</label>
+			</form>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="text-xl font-semibold mb-2">Activities:</h2>
+        <ul id="activityList" class="list-disc list-inside overflow-y-auto h-[250px]">
+        	<li th:each="activity : ${activities}" th:text="${activity}"></li>
+        </ul>
+    </section>
+</body>
+</html>
